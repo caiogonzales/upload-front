@@ -1,10 +1,10 @@
 import React from 'react';
 import {CircularProgressbar} from 'react-circular-progressbar';
-import { MdCheckCircle, MdError, MdLink } from 'react-icons/md';
+import { MdCheckCircle, MdError } from 'react-icons/md';
 
 import { Container, FIleInfo, Preview } from './style';
 
-const FIleList = ({ files, onDelete }) => (
+const FIleList = ({ files }) => (
     <Container>
         {files.map(uploadedFile =>(
             <li key={uploadedFile.id}>
@@ -13,10 +13,7 @@ const FIleList = ({ files, onDelete }) => (
                     <div>
                         <strong>{uploadedFile.name}</strong>
                         <span>
-                            {uploadedFile.readableSize}
-                            {!!uploadedFile.url && (
-                                <button onClick={() => onDelete(uploadedFile.id)}>Excluir</button>
-                            )}
+                            {uploadedFile.readableSize} 
                         </span>
                     </div>
                 </FIleInfo>
@@ -31,12 +28,6 @@ const FIleList = ({ files, onDelete }) => (
                             strokeWidth={10}
                             value={uploadedFile.progress}
                         />
-                    )}
-
-                    {uploadedFile.url && (
-                        <a href={uploadedFile.url} target="_blank" rel="noopener noreferrer">
-                            <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
-                        </a>
                     )}
 
                     { uploadedFile.uploaded && <MdCheckCircle size={24} color="#78e5d5" /> }
