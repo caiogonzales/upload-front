@@ -104,7 +104,7 @@ export default class Registrados extends Component {
             <Container>
                 <Content>
                     <h1>Vídeos registrados</h1>
-                    {!!uploadeFiles.length && (<FileList files={uploadeFiles} onDelete={handleDelete} />)}
+                    {!!uploadeFiles.length && (<FileList files={uploadeFiles} onDelete={this.handleDelete} />)}
                 </Content>
                 <GlobalStyle />
             </Container>
